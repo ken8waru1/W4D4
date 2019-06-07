@@ -1,0 +1,16 @@
+<h1>アルバムを登録する</h1>
+
+
+<form action="<%= albums_url %>" method="POST">
+  <%= auth_token %>
+
+  <label>バンド：
+    <select name="album[band]">
+      <% @bands.each do |band| %>
+      <option value="<%= band.name %>" <%= band.id == @band.id ? "selected" : "" %>><%= band.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit">
+</form>

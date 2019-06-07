@@ -1,0 +1,28 @@
+<% if action == :new %>
+  <% action_url = bands_url %>
+<% elsif action == :edit %>
+  <% action_url = band_url(band) %>
+<% end %>
+
+<form action="<%= action_url %>" method="POST">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <%= auth_token %>
+
+  <label>バンド名：
+    <input type="text" name="band[name]", value="<%= band.name %>">
+  </label>
+
+  <br>
+  <br>
+
+  <label>イメージ：
+    <input type="text" name="band[picture]" value="<%= band.picture %>">
+  </label>
+
+  <br>
+  <br>
+
+  <input type="submit" value = "<%= action == :new ? '登録' : '更新' %>">
+</form>

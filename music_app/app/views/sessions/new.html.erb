@@ -1,0 +1,20 @@
+<h1>おかえり、友よ</h1>
+
+<form action="<%= session_url %>" method="POST">
+  <%= auth_token %>
+  <label>メールアドレス：
+    <input type="text" name="user[email]">
+  </label>
+  
+  <br>
+  <br>
+
+  <label>パスワード：
+    <input type="password" name="user[password]">
+  </label>
+
+  <br>
+  <br>
+
+  <input type="submit" value="共に行こう">
+</form>

@@ -1,0 +1,20 @@
+<h1>音楽が好き？じゃぁ、僕たちの仲間になろう！</h1>
+
+<form action="<%= users_url %>" method="POST">
+  <%= auth_token %>
+  <label>メールアドレス：
+    <input type="text" name="user[email]">
+  </label>
+  
+  <br>
+  <br>
+
+  <label>パスワード：
+    <input type="password" name="user[password]">
+  </label>
+
+  <br>
+  <br>
+
+  <input type="submit" value="イケェェェ">
+</form>

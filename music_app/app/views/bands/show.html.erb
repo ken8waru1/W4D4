@@ -1,0 +1,11 @@
+<h1><%= @band.name %></h1>
+
+<img src="<%= @band.picture %>" width="500"/>
+
+<form action="<%= band_url(@band) %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= auth_token %>
+  <input type ="submit" value="削除">
+</form>
+
+<a href="<%= edit_band_url %>">更新</a>

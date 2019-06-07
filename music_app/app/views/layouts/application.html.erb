@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>音楽アプリ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <style>
+    header {
+      font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", verdana, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .guest {
+      border-radius: 5px;
+      background-color: #fcba94;
+      text-decoration: none;
+      font-family: "メイリオ", "Meiryo", verdana, Osaka;
+    }
+
+    body {
+      background-color: #8caadb;
+    }
+  </style>
+
+  <body>
+    <header>
+    <h1>けいおん！</h1>
+    <% if logged_in? %>
+      <h2>よぉ、元気か</h2>
+      <form action="<%= session_url %>" method="POST">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="ログアウト">
+      </form>
+    <% else %>
+      <a class="guest" href="<%= new_user_url %>">登録</a>
+      <a class="guest" href="<%= new_session_url %>">ログイン</a>
+    <% end%>
+    </header>
+
+
+
+    <%= yield %>
+  </body>
+</html>
